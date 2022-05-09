@@ -1,0 +1,7 @@
+.pagination{
+    margin-left: 83%;
+}
+.page-item.active .page-link{
+    background-color: #b03561;
+    border: 1px solide #b03561;
+}

@@ -1,0 +1,16 @@
+.table button.delete {
+  color: #dc3545;
+}
+.table button.edit {
+  color: #23bd5a;
+}
+.table button.download {
+  color: #3591dc;
+}
+.table button.delete,
+.table button.edit,
+.table button.download {
+  border: none;
+  font-size: 20px;
+  background: none;
+}
