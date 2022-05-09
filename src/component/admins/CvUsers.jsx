@@ -167,7 +167,7 @@ function CvUsers() {
                         </span>
                       </button>
                       </div> */}
-                        <button
+                        {/* <button
                           type="button"
                           className="delete"
                           onClick={() => viewFile(cvUserPost.cvId)}
@@ -176,9 +176,9 @@ function CvUsers() {
                           <span aria-hidden="true">
                             <i className="fa-solid fa-eye"></i>
                           </span>
-                        </button>
+                        </button> */}
                         &nbsp; &nbsp;
-                        <button
+                        {/* <button
                           type="button"
                           className="delete"
                           onClick={() => downloadFile(cvUserPost.cvId)}
@@ -186,7 +186,7 @@ function CvUsers() {
                           <span aria-hidden="true">
                             <i className="fa-solid fa-download"></i>
                           </span>
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>

@@ -2,7 +2,6 @@ import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { fileView } from "../../axios/common/function";
-import ModDark from "../../controle/ModDark";
 import { isAuthentication, Logout } from "../../page/redux/actions/auth";
 function Header() {
   // -----checked login :
