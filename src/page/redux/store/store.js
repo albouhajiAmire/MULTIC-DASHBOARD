@@ -14,22 +14,22 @@ import subscribeReducer from "../reducers/subscribe";
 import contactsReducer from "../reducers/contactTable";
 import registerReducer from "../reducers/registerClient";
 import postClientReducer from "../reducers/postClient";
+import userAddReducer from "../reducers/AddUser";
 const middlewares = [reduxThunk];
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }
-
 const reducer = combineReducers({
   loading: loadingReducer,
   message: messageReducer,
   auth: authReducer,
-  users: usersReducers,
+  // users: usersReducers,
   subscribe: subscribeReducer,
   contacts: contactsReducer,
   registerClt: registerReducer,
-  postclient : postClientReducer
+  postclient: postClientReducer,
+  addUsers: userAddReducer,
 });
-
 const persistConfig = {
   key: "auth",
   storage,

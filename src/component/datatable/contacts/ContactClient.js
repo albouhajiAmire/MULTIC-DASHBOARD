@@ -35,13 +35,25 @@ function ContactClient() {
   }, []);
 
   const handleDelete = (id) => {
-    dispatch(delete_Contacts(id,token));
+    dispatch(delete_Contacts(id,Authorization));
   };
-  console.log("naaaav", count_pag);
+  // console.log("naaaav", count_pag);
   return (
     <>
       <Header />
       <Sidebar />
+      <div className="pagetitle">
+        <h1>Profil</h1>
+        <nav>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="index.html">page d'accuile</a>
+            </li>
+            <li className="breadcrumb-item">utilisateurs</li>
+            <li className="breadcrumb-item active">contact client</li>
+          </ol>
+        </nav>
+      </div>
       <div className="col-12">
         <div className="card recent-sales overflow-auto">
           <div className="card-body">

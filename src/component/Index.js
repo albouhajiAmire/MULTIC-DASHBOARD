@@ -21,7 +21,6 @@ function Index() {
     <>
       {isAuth && (
         <>
-          {" "}
           <Header />
           <Sidebar />
           <IndexDash />

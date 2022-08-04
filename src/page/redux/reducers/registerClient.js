@@ -1,19 +1,24 @@
-import { GET_ALL_REGISTER } from "../../constans/registerClient";
+import { COUNT_USERS, GET_ALL_REGISTER } from "../../constans/registerClient";
 
 const INITIAL_STATE = {
-    get_all_register : []
-}
+  get_all_register: [],
+  count: 0,
+};
 
 const registerReducer = (state = INITIAL_STATE, action) => {
-    console.log('REEEEEEEEEE',action.payload)
-    switch (action.type) {
-      case GET_ALL_REGISTER:
-        console.error("REGISSSSSSSSSSTR",action.payload);
-        return {
-          get_all_register: action.payload,
-        };
-      default:
-        return state;
-    }
-  };
-  export default registerReducer;
+  switch (action.type) {
+    case GET_ALL_REGISTER:
+      return {
+        ...state,
+        get_all_register: action.payload,
+      };
+    case COUNT_USERS:
+      return {
+        ...state,
+        count: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+export default registerReducer;

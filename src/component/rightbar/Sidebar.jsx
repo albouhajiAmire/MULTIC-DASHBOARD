@@ -31,7 +31,7 @@ function Sidebar() {
             >
               <li>
                 <NavLink to={"/"}>
-                  <i className="fa-solid fa-circle-dot"></i>
+                <i className="fa-solid fa-table-cells"></i>
                   <span>Tableaux généraux</span>
                 </NavLink>
               </li>
@@ -47,28 +47,29 @@ function Sidebar() {
                   <span>Administrateur</span>
                 </NavLink>
               </li> */}
-              <li>
+              {/* <li>
                 <NavLink to={"/"}>
-                  <i className="fa-solid fa-users"></i>
+                <i className="fa-solid fa-users-line"></i>
                   <span>Client</span>
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to={"/registerclient"}>
-                  <i className="fa-solid fa-users-line"></i>
-                  <span>Enregistrer un client</span>
+                
+                  <i className="fa-solid fa-users"></i>
+                  <span>Enregistre</span>
                 </NavLink>
               </li>
               <li>
                 <NavLink to={"/postuleclient"}>
                   <i className="fa-solid fa-user-tag"></i>
-                  <span>postule client</span>
+                  <span>Postule</span>
                 </NavLink>
               </li>
               <li>
                 <NavLink to={"/contactclient"}>
                   <i className="fa-solid fa-id-card"></i>
-                  <span>Contact table</span>
+                  <span>Contact</span>
                 </NavLink>
               </li>
               <li>
@@ -126,7 +127,7 @@ function Sidebar() {
               href="users-profile.html"
             >
               <i className="fa-solid fa-person-circle-plus"></i>
-              <span>Profile</span>
+              <span>Profil</span>
             </NavLink>
           </li>
 
@@ -140,7 +141,7 @@ function Sidebar() {
           <li className="nav-item">
             <a className="nav-link collapsed" href="pages-contact.html">
               <i className="fa-solid fa-id-card-clip"></i>
-              <span>Contact</span>
+              <span>Contacts Chat</span>
             </a>
           </li>
           {/* <li className="nav-item">
@@ -153,7 +154,7 @@ function Sidebar() {
           <li className="nav-item">
             <NavLink to={"/login"} className="nav-link collapsed">
               <i className="fa-solid fa-arrow-right-to-bracket"></i>
-              <span>Loug out</span>
+              <span>Se déconnecter</span>
             </NavLink>
           </li>
 

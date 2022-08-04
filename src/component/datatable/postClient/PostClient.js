@@ -6,18 +6,17 @@ import {
   delete_PostClient,
   get_all_PostClient,
 } from "../../../page/redux/actions/postClient";
-
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import Button from "../../../controle/Button";
 import moment from "moment";
 function PostClient() {
   toast.configure();
   const { get_all_post_client } = useSelector((state) => state.postclient);
+   
   const { token } = useSelector((state) => state.auth);
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(get_all_PostClient(token, { expend: "userId" }));
+    dispatch(get_all_PostClient(token, { expend: "userId" })); 
   }, []);
   // -----------------------------------------------------------
   const handleDelete = (cvId) => {
@@ -30,30 +29,36 @@ function PostClient() {
     <>
       <Header />
       <Sidebar />
+      <div className="pagetitle">
+        <h1>Profil</h1>
+        <nav>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="index.html">page d'accuile</a>
+            </li>
+            <li className="breadcrumb-item">utilisateurs</li>
+            <li className="breadcrumb-item active">postuler client</li>
+          </ol>
+        </nav>
+      </div>
       <div className="col-12">
         <div className="card recent-sales overflow-auto">
           <div className="card-body">
             <div className="row">
-              <h5 className=" col-md-6 card-title">
+              <h5 className=" col-md-8 card-title">
                 Postuler client <span>| Aujourdhui</span>
               </h5>
-              <div className="col-md-6 ">
-                <NavLink to={"/adduser"}>
-                  <Button />
-                </NavLink>
-              </div>
-            </div>
-            <div className="row">
+              <div className="col-md-2 ">
               <div className="input-field mb-4" style={{
-                height:"36px"
+               
               }}>
                 <input type="text" placeholder="Recherche"/>
-                <i class="fa-solid fa-magnifying-glass" style={{
+                <i className="fa-solid fa-magnifying-glass" style={{
                   marginLeft:'-29px',cursor:"pointer" ,position:"sticky"
                 }}></i>
               </div>
+              </div>
             </div>
-
             <table className="table table-borderless datatable">
               <thead>
                 <tr>
@@ -74,12 +79,10 @@ function PostClient() {
                     <tr key={userCv._id}>
                       <td>{index + 1}</td>
                       <td> {userCv.type} </td>
-
                       <td>
-                        {" "}
-                        <NavLink to={`/cvProfil/${userCv.userId._id}`}>
-                          {`${userCv.userId.firstname} ${userCv.userId.lastname}`}{" "}
-                        </NavLink>{" "}
+                        {/* <NavLink to={`/cvProfil/${userCv.userId._id}`}> */}
+                          {/* {`${userCv.userId.firstname} ${userCv.userId.lastname}`}{" "} */}
+                        {/* </NavLink>{" "} */}
                       </td>
 
                       <td>{userCv.certificate}</td>

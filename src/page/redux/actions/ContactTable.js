@@ -19,18 +19,18 @@ const get_all_Contacts = (token, filter) => {
         params: filter,
       })
       .then((resp) => {
-        // console.log("resp", resp);
+         console.log("get_all_Contacts", resp);
         if (!resp.data.err) {
-          // console.log(resp.data.msg);
+           console.log("get_all_Contacts",resp.data.msg);
           dispatch({
             type: GET_ALL_CONTACT,
             payload: resp.data.msg,
           });
         } else {
-          // console.log(resp.data.msg);
+           console.log("get_all_Contacts",resp.data.msg);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("get_all_ContactsERROR",error));
   };
 };
 
@@ -44,23 +44,23 @@ const delete_Contacts = (id, token) => {
         },
       })
       .then((resp) => {
-        // console.log("resp", resp);
+        //  console.log("delete_Contacts", resp);
         if (!resp.data.err) {
-          // console.log(resp.data.msg);
+          //  console.log("delete_Contacts",resp.data.msg);
           dispatch({
             type: DELETE_CONTACT,
             payload: id,
           });
         } else {
-          // console.log(resp.data.msg);
+           console.log("delete_Contacts",resp.data.msg);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("delete_ContactsERROR",error));
   };
 };
 
 const count_Nav_Contacts = (token, filter) => {
-  console.log(filter);
+  // console.log(filter);
   return function (dispatch) {
     axios
       .get(`http://localhost:3002/v1/api/contact/count`, {
@@ -78,14 +78,14 @@ const count_Nav_Contacts = (token, filter) => {
             payload: resp.data.msg,
           });
         } else {
-          console.log("countnav", resp.data.msg);
+          console.log("count_Nav_Contacts", resp.data.msg);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("count_Nav_ContactsERROR",error));
   };
 };
 const count_Pag_Contacts = (token, filter) => {
-  console.log(filter);
+  // console.log(filter);
   return function (dispatch) {
     axios
       .get(`http://localhost:3002/v1/api/contact/count`, {
@@ -95,20 +95,21 @@ const count_Pag_Contacts = (token, filter) => {
         params: filter,
       })
       .then((resp) => {
-        console.log("resp", resp);
+        // console.log("resp count_Pag_Contacts", resp);
         if (!resp.data.err) {
-          console.log("respoooo", resp.data.msg);
+          // console.log("count_Pag_Contacts", resp.data.msg);
           dispatch({
             type: COUNT_PAG,
             payload: resp.data.msg,
           });
         } else {
-          console.log("countpag", resp.data.msg);
+          console.log("count_Pag_Contacts", resp.data.msg);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("count_Pag_Contacts_error",error));
   };
 };
+
 
 export {
   get_all_Contacts,

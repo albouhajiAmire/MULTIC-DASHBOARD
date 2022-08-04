@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { fileView } from "../../axios/common/function";
 import { isAuthentication } from "../../page/redux/actions/auth";
 import Sidebar from "../rightbar/Sidebar";
 import Header from "../topbar/Header";
 import "react-toastify/dist/ReactToastify.css";
-import { ME, ME_UPDATE_AVATAR } from "../../page/constans/auth";
+import { ME, ME_UPDATE_AVATAR } from "../../page/constans/auth"; 
 import { Create } from "../../axios/service/file";
 import { EditAccount, Image, ChangePassword } from "../../axios/service/user";
-function AdminProfil() {
+function AdminProfil() { 
   toast.configure();
   const [resetPassword, setResetPassword] = useState({
     oldpassword: "",
@@ -26,7 +26,7 @@ function AdminProfil() {
     firstname: "",
     lastname: "",
     email: "",
-    password: "",
+    password: "", 
   });
   const { firstname, lastname, email } = profilData;
   const [loading, setLoading] = useState(false);
@@ -95,17 +95,16 @@ function AdminProfil() {
         // console.log(data);
       })
       .catch((err) => {
-        console.log("get orders api err ", err);
+        console.log("AdminProfilError", err);
         setLoading(false);
-        toast.error(t("something went wrong please try again"));
+        toast.error(t("Une erreur s'est produite. Veuillez réessayer"));
       });
   };
-
   //upload image
   const uploadImage = (e) => {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
-      console.log(img);
+      // console.log(img);
       //return
       const formData = new FormData();
       // formData.set("image", img);
@@ -134,9 +133,11 @@ function AdminProfil() {
                 //   console.log(data);
               })
               .catch((err) => {
-                console.log("get orders api err ", err);
+                console.log("get orders api err Admin profil ", err);
                 setLoading(false);
-                toast.error(t("something went wrong please try again 2"));
+                toast.error(
+                  t("Une erreur s'est produite. Veuillez réessayer 2")
+                );
               });
           } else {
             setLoading(false);
@@ -147,9 +148,9 @@ function AdminProfil() {
           //  console.log(data);
         })
         .catch((err) => {
-          console.log("get orders api err ", err);
+          console.log("get orders api err adminprf ", err);
           setLoading(false);
-          toast.error(t("something went wrong please try again 1"));
+          toast.error(t("Une erreur s'est produite. Veuillez réessayer 1"));
         });
     }
   };
@@ -193,33 +194,33 @@ function AdminProfil() {
         // console.log(data);
       })
       .catch((err) => {
-        console.log("get orders api err ", err);
+        console.log("get orders api err admn prf", err);
         setLoading(false);
         toast.error(t("something went wrong please try again"));
       });
   };
 
   const defaultImage = () => {
-      setLoading(true);
-            Image(user._id,{ image:'6273bc47933490009cc19910'} , authorization)
-              .then(({ data }) => {
-                if (!data.err) {
-                  setLoading(false);
-                  toast.success(t("Supprimer photo "));
-                  dispatch({ type: ME_UPDATE_AVATAR, payload: data.msg });
-                } else {
-                  setLoading(false);
-                  toast.error(
-                    typeof data.msg == "string" ? t(data.msg) : t(data.msg[0])
-                  );
-                }
-                //   console.log(data);
-              })
-              .catch((err) => {
-                console.log("get orders api err ", err);
-                setLoading(false);
-                toast.error(t("something went wrong please try again 2"));
-              });
+    setLoading(true);
+    Image(user._id, { image: "6273bc47933490009cc19910" }, authorization)
+      .then(({ data }) => {
+        if (!data.err) {
+          setLoading(false);
+          toast.success(t("Supprimer photo "));
+          dispatch({ type: ME_UPDATE_AVATAR, payload: data.msg });
+        } else {
+          setLoading(false);
+          toast.error(
+            typeof data.msg == "string" ? t(data.msg) : t(data.msg[0])
+          );
+        }
+        //   console.log(data);
+      })
+      .catch((err) => {
+        console.log("get orders api err admp", err);
+        setLoading(false);
+        toast.error(t("Une erreur s'est produite. Veuillez réessayer 2"));
+      });
   };
   return (
     <>
@@ -230,7 +231,7 @@ function AdminProfil() {
         <nav>
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="index.html">page d'accuile</a>
+              <Link to={"/"}>page d'accuile</Link>
             </li>
             <li className="breadcrumb-item">Utilisateurs</li>
             <li className="breadcrumb-item active">Profil</li>
@@ -391,9 +392,10 @@ function AdminProfil() {
                                 onChange={uploadImage}
                               />
                             </label>
-                            
-                          {/* ---------- */}
-                            <a onClick={defaultImage}
+
+                            {/* ---------- */}
+                            <a
+                              onClick={defaultImage}
                               href="javascript:void(0)"
                               className="btn btn-danger btn-sm"
                               title="Remove my profile image"

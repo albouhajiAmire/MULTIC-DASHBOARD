@@ -8,21 +8,21 @@ const INITIAL_STATE = {
 const subscribeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_ALl_SUBSCRIBE:
-      console.error(action.payload);
+      // console.error(action.payload);
       return {
         // ...state,
         all_subscribe: action.payload,
       };
     case DELETE_SUBSCRIBE:
       const id = action.payload;
-      console.error(id);
-      console.log(state.all_subscribe);
+      // console.error(id);
+      // console.log(state.all_subscribe);
       const index = state.all_subscribe.findIndex(s => s._id === id);
-      console.log(index);
+      // console.log(index);
       if (index >= 0) {
         state.all_subscribe.splice(index, 1);
       }
-      console.log(state.all_subscribe);
+      // console.log(state.all_subscribe);
       // or :
       //  console.log(state.all_subscribe);
       //          const newSubsArr = state.all_subscribe.map(s => {if (s._id !== id) return s});

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   count_nav: 0
 };
 const contactsReducer = (state = INITIAL_STATE, action) => {
-  console.log('gggggggg',action.payload)
+  //console.log('contactsReducer',action.payload)
   switch (action.type) {
     case GET_ALL_CONTACT:
       // console.error(action.payload);

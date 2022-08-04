@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import '../../../assets/css/pagination.css'
+import "../../../assets/css/pagination.css";
 import {
   delete_Subscribe,
   get_all_Subscribe,
@@ -12,31 +12,41 @@ function Subscribe() {
   toast.configure();
   // const { all_contacts } = useSelector((state) => state.contact);
   // const { all_subscribe : nm = {ok : "ok"} } = useSelector((state) => state.users);
-  // const { all_subscribe} = useSelector((state) => state.users);
   // or :
-  const {
-    subscribe: { all_subscribe },
-  } = useSelector((state) => state);
-  console.log(all_subscribe);
+  // const {subscribe: { all_subscribe } } = useSelector((state) => state);
+  // console.log(all_subscribe);
   // or
   // const  subscribe  = useSelector((state) => state.users.all_subscribe);
   // or : didiss2017
   // const { users : {all_subscribe} } = useSelector((state) => state);
   // const { all_subscribe } = users;
+  const {all_subscribe}  = useSelector((state) => state.subscribe);
+  const { token } = useSelector((state) => state.auth);
+  console.log("qhqhqjqhqqq",all_subscribe);
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(get_all_Subscribe());
+    dispatch(get_all_Subscribe(token));
   }, []);
-
   const handleDelete = (id) => {
-    dispatch(delete_Subscribe(id));
-    toast.success("suprimer")
+    dispatch(delete_Subscribe(id,token));
+    toast.success("suprimer");
   };
   return (
     <>
       <Header />
       <Sidebar />
-
+      <div className="pagetitle">
+        <h1>Profil</h1>
+        <nav>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="index.html">page d'accuile</a>
+            </li>
+            <li className="breadcrumb-item">utilisateurs</li>
+            <li className="breadcrumb-item active">abonnement client</li>
+          </ol>
+        </nav>
+      </div>
       <div className="col-12">
         <div className="card recent-sales overflow-auto">
           <div className="card-body">

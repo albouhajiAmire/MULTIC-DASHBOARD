@@ -8,9 +8,8 @@ import { get_signle_cv } from "../../page/redux/actions/postClient";
 import { fileDownload, fileView } from "../../axios/common/function";
 function CvUsers() {
   const params = useParams();
-
   const { cvUserPost } = useSelector((state) => state.postclient);
-  console.log("eeeeeee", cvUserPost);
+  // console.log("eeeeeee", cvUserPost); 
   const { token } = useSelector((state) => state.auth);
   let dispatch = useDispatch();
   useEffect(() => {
@@ -25,21 +24,6 @@ function CvUsers() {
   }, []);
   //  console.log("cvcccvcvvvvvvv",cvUserPost);
   //-----------------------------------------------
-  const downloadFile = (fileId) => {
-    const a = document.createElement("a");
-    a.href = fileDownload(fileId);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
-  const viewFile = (fileId) => {
-    const a = document.createElement("a");
-    a.href = fileView(fileId);
-    a.target = "__blanck";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
   return (
     <>
       <Header />
@@ -141,52 +125,6 @@ function CvUsers() {
                       </div>
                       <div className="row">
                         <div className="col-lg-3 col-md-4 label">C_V : </div>
-                        {/* <div className="col-lg-9 col-md-8">
-                        <img src="/img/login.svg" alt=""
-                        style={{width:"77px"}}/>
-                        &nbsp;	&nbsp;
-                          	&nbsp;	&nbsp;
-                            <button
-                        type="button"
-                        className="delete"
-                       onClick={() => viewFile(userCv.cvId)}
-                      >
-                        <span aria-hidden="true">
-                          <i className="fa-solid fa-eye"></i>
-                        </span>
-                      </button>
-                          	&nbsp;	&nbsp;
-                          	&nbsp;	&nbsp;
-                      <button
-                        type="button"
-                        className="delete"
-                      onClick={() => downloadFile(userCv.cvId)}
-                      >
-                        <span aria-hidden="true">
-                          <i className="fa-solid fa-download"></i>
-                        </span>
-                      </button>
-                      </div> */}
-                        {/* <button
-                          type="button"
-                          className="delete"
-                          onClick={() => viewFile(cvUserPost.cvId)}
-                        >
-                          &nbsp; &nbsp;
-                          <span aria-hidden="true">
-                            <i className="fa-solid fa-eye"></i>
-                          </span>
-                        </button> */}
-                        &nbsp; &nbsp;
-                        {/* <button
-                          type="button"
-                          className="delete"
-                          onClick={() => downloadFile(cvUserPost.cvId)}
-                        >
-                          <span aria-hidden="true">
-                            <i className="fa-solid fa-download"></i>
-                          </span>
-                        </button> */}
                       </div>
                     </div>
                   </div>

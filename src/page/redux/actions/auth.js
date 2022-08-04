@@ -25,7 +25,7 @@ const Auth = (formData) => async dispatch => {
 
 
     }).catch(err => {
-        console.log("get orders api err ", err);
+        console.log("get orders api err AUTH ME", err);
         dispatch({ type: STOP_LOADING });
         dispatch({ type: SHOW_ERROR_MESSAGE, payload : "Une erreur Veuillez réessayer" })
     })
@@ -53,7 +53,7 @@ const Me = (token) => async dispatch => {
 
 
     }).catch(err => {
-        console.log("get orders api err ", err);
+        console.log("get orders api err AUTH ME", err);
         dispatch({type: LOGOUT })
         dispatch({ type: STOP_LOADING })
     })

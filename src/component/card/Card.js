@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { count_Pag_Contacts } from "../../page/redux/actions/ContactTable";
+import { count_Users } from "../../page/redux/actions/registerClient";
 function Card() {
   //--------------------------------------------------------------------------------
   //--------------------OR:
@@ -16,12 +17,10 @@ function Card() {
   // ]);
   //--------------------------------------------------------------------------------
   //--------------------OR:
-  const {
-    contactst: { count_pag },
-    autht: { token },
-  } = useSelector((state) => {
-    return { contactst: state.contacts, autht: state.auth };
+  const {contactst: { count_pag },autht: { token }, users:{count} } = useSelector((state) => {
+    return { contactst: state.contacts, autht: state.auth, users: state.registerClt};
   });
+console.log("qqqqqqqqqqq",count);
   //--------------------------------------------------------------------------------
   //--------------------OR:
   // const {contacts : {count_pag} , auth:{token}} = useSelector((state)=> state)
@@ -30,6 +29,11 @@ function Card() {
   useEffect(() => {
     dispatch(
       count_Pag_Contacts(token, {
+        filter: { $ne: { firstname: "eeeeeebbjhbujhbjhbjh" } },
+      })
+    );
+    dispatch(
+      count_Users(token, {
         filter: { $ne: { firstname: "eeeeeebbjhbujhbjhbjh" } },
       })
     );
@@ -54,7 +58,8 @@ function Card() {
                   <i className="fa-solid fa-users"></i>
                 </div>
                 <div className="ps-3">
-                  <h6>5</h6>
+                  <h6>{count}</h6> 
+                
                   <span className="text-success small pt-1 fw-bold">
                     12%
                   </span>{" "}

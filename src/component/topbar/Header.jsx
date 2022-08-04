@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { fileView } from "../../axios/common/function";
 import { isAuthentication, Logout } from "../../page/redux/actions/auth";
 function Header() {
@@ -8,7 +8,7 @@ function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {isAuth,user } = useSelector((state) => state.auth);
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     dispatch(isAuthentication());
   }, [dispatch]);
@@ -32,17 +32,16 @@ function Header() {
         className="header fixed-top d-flex align-items-center"
       >
         <div className="d-flex align-items-center justify-content-between">
-          <a href="index.html" className="logo d-flex align-items-center">
+          <Link to={'/'} className="logo d-flex align-items-center">
             {/* <img src="/img/Logodash.png" alt="logo" style={{maxHeight:"50px"}}/> */}
             <span className="d-none d-lg-block">Multi-c Admin</span>
-          </a>
+          </Link>
           <i className="fa-solid fa-bars"></i>
         </div>
 
         <div className="search-bar">
           <form
             className="search-form d-flex align-items-center"
-            method="POST"
             action="#"
           >
             <input
@@ -252,7 +251,7 @@ function Header() {
 
               <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li className="dropdown-header">
-                  <h6>  {`${user.email}`}</h6>
+                  <h6>{`${user.email}`}</h6>
                   <span>role</span>
                 </li>
                 <li>

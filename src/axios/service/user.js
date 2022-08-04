@@ -19,7 +19,7 @@ const EditAccount = async (id, data, con) => {
     `${Host.BACKEND}${ApiEndpoints.UserEndpoints.route}${ApiEndpoints.UserEndpoints.edit}/${id}`,
     data,
     { headers: { ...config.headers, ...con } }
-  );
+  ); 
 };
 
 const ChangePassword = async (id, data, con) => {
