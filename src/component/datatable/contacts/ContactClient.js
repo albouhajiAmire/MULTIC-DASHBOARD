@@ -35,7 +35,7 @@ function ContactClient() {
   }, []);
 
   const handleDelete = (id) => {
-    dispatch(delete_Contacts(id,Authorization));
+    dispatch(delete_Contacts(id,token));
   };
   // console.log("naaaav", count_pag);
   return (
